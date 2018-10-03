@@ -1,0 +1,117 @@
+/**************************************** Background Coloring *********************************************/
+body {
+    background-image: url(../media/noisy-texture-200x200-o3-d22-c-C5C3C6-t0.png);
+}
+
+/*************************************** Header Stylings ************************************************/
+.buttons{
+    margin:0 auto;
+}
+.header{
+    background-color:#4C5C68;
+}
+
+/* dropdown menu styling */
+.dropdown-toggle{
+    background-color:#4C5C68;
+    border:none;
+    color:#FBFBFB;
+}
+
+.dropdown-menu.show {
+    width: 90vw;
+}
+
+#add-stock{
+    margin-top:75%;
+}
+
+.deskhead{
+    display:none;
+}
+
+.title{
+    margin-top:2%;
+    color:#FBFBFB;
+}
+/************************************* Stock Buttons Styling *******************************/
+button{
+    margin: 1%;
+}
+.btn-primary{
+    background-color:#FBFBFB;
+    border-radius: 15px;
+    border-color:#FBFBFB;
+    color:#1985A1;
+}
+
+/************************************ End of Stock Buttons Styling ****************************/
+
+/************************************ Start of Stock info Styling *****************************/
+#stockchart{
+    margin-top:2%;
+}
+
+img{
+    height: 5vh;
+    width:auto;
+}
+
+#stockLogo{
+    margin-right: 4vw;
+}
+#stockName{
+    text-align:center;
+}
+
+.stockheader{
+    margin-top: 2vh;
+}
+/********************************* End of stock info styling ********************************/
+
+/******************************** Start of additional info styling ************************/
+#stock-info{
+    margin-top:0;
+}
+
+.info{
+    margin-top:4%;
+    border-radius:0;
+}
+/******************************** End of Additional info styling  ***************************/
+
+/******************************** Start of news styling ************************************/
+
+#stock-news{
+    margin-top:4%;
+}
+
+
+
+.news{
+    width:90vw;
+    height:50vh;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+    margin-bottom: 5%;
+    background-color:#FBFBFB;
+    padding-right:5%;
+}
+
+@media only screen and (min-width: 768px) {
+    .deskhead{
+        display:inline-block;
+        background-color: #4C5C68;
+    }
+    .btn-secondary{
+        background-color:#4C5C68;
+    }
+    #add-stock{
+        margin-top: 75%;
+        margin-left: 25%;
+    }
+
+    .dropdown-menu.show {
+        width: 40vw;
+    }
+}
