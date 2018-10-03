@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
+</head>
+<body>
+    <div class="container">
+      <!-- Modal for the filter screen -->
+      <div class="modal fade" id="filter" tabindex="-1" role="dialog" aria-labelledby="filterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="filterTitle">Filter Information Displayed</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"checked>
+                    <label class="form-check-label" for="inlineCheckbox1">CEO</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" checked>
+                    <label class="form-check-label" for="inlineCheckbox2">Industry</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Head for the mobile version -->
+        <div class="row header d-md-none">
+            <div class="d-inline-flex">
+                <!-- dropdown button to add stock and access filter modal -->
+                <div class="dropdown col-sm-4" >
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-bars fa-2x"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="menu">
+                        <div class="btn-group dropright">
+                        <div class="dropdown-submenu">
+                                <form class="px-3 py-1">
+                                    <div class="form-row">
+                                        <div class="col-8">
+                                        <label for="stock-input">Add stock to buttons:</label>
+                                        <input type="text" class="form-control" id="stock-input" value="">
+                                        </div>
+                                        <div class="col-2 align-item-center">
+                                        <button type="submit" class="btn btn-primary" id="add-stock">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <button type="button" class="dropdown-item" data-toggle="modal" data-target="#filter">Filter</button>
+                    </div>
+                </div>
+                <div class="col-sm-8 text-nowrap title">
+                        <h3>Stock Tracker</h3>
+                </div>
+            </div>
+        </div>
+        <!-- header for tablet and desktop site -->
+        <div class="row deskhead d-md-flex flex-nowrap">
+            <h1 class="col-md-6 text-nowrap">Stock Market</h1>
+            <!-- dropdown menu to add stock -->
+            <div class="btn-group col-md-6 float-right" role="group" aria-label="Basic example">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Stock</button>
+                <div class="dropdown-menu">
+                    <form class="px-3 py-1">
+                        <div class="form-row">
+                            <div class="col-8">
+                            <label for="stock-input">Enter stock symbol:</label>
+                            <input type="text" class="form-control" id="stock-input" value="">
+                            </div>
+                            <div class="col-2 align-item-center">
+                            <button type="submit" class="btn btn-primary" id="add-stock">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#filter">Filter</button>
+            </div>
+        </div> 
+        <!-- display the main content of the site -->
+        <div class="row content">
+            <!-- display the buttons for the stock here -->
+            <div class="buttons col-md-12 d-flex flex-wrap justify-content-between" id="stocks-view">
+    
+            </div>
+            <!-- display the content of the basic stock info here -->
+            <div class="container stockheader d-flex flex-nowrap align-content-center">
+                <div class="col" id='stockLogo'></div>
+                <div class="col-sm-8" id='stockName'></div>
+                <div class="col" id='stockPrice' ></div> 
+            </div>
+            <!-- display the 1m chart here -->
+            <div class="container col-sm-12" id="stockchart">
+                <canvas id="myChart" width="90vw" height="50vh"></canvas>
+            </div>
+            <!-- display the additional information here -->
+            <button class="btn btn-primary col-sm-12 info" type="button" data-toggle="collapse" data-target="#collapseinfo" aria-expanded="false" aria-controls="collapseinfo">
+                    Additional Information <i class="fas fa-caret-down"></i>
+                  </button>
+                </p>
+                <div class="collapse" id="collapseinfo">
+                  <div class="card card-body" id="stock-info">
+                    <table>
+                    </table>
+                  </div>
+                </div>
+            <!-- display the list of news articles here -->
+            <div class="container news">
+                   <table id="news">
+
+                   </table>
+            </div>
+        </div>
+    </div>
+  
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
