@@ -4,7 +4,7 @@ const validationstocks = [];
 let datedata = [];
 let highdata = [];
 const infodata = [];
-const companydata = ['CEO','website', 'description'];
+let companydata = ['CEO','website', 'description'];
 
 const ctx = $("#myChart");
 
@@ -23,6 +23,7 @@ const render = function () {
     $('.show').dropdown('toggle');
   }
 };
+
 
 // This function handles events where the add stock button is clicked
 const addButton = function(event) {
@@ -100,6 +101,7 @@ $("#stocks-view").on('click', '.get-stock', function(event){
             }]
         },
         options: {
+            responsive: false,
             scales: {
                 yAxes: [{
                     ticks: {
